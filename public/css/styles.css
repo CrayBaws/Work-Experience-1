@@ -1,5 +1,25 @@
 /* Calico Media marketing site */
 
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
 :root {
   --ink: #1f1a17;
   --ink-soft: #5b524c;
@@ -125,6 +145,7 @@ img {
 
 .btn--ghost:hover {
   background: rgba(255, 255, 255, 0.1);
+  
 }
 
 /* Header */
@@ -406,7 +427,7 @@ img {
 
 .playbook-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 28px;
 }
 
@@ -746,6 +767,19 @@ img {
   padding-top: 24px;
 }
 
+@media (max-width: 1000px) {
+  .hero-inner {
+    flex-direction: column;
+  }
+
+  .hero-media {
+    width: 100%;
+    order: -1;
+  }
+}
+
+
+
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
@@ -758,6 +792,7 @@ img {
   .section {
     padding: 64px 0;
   }
+
 
   .feature-row {
     grid-template-columns: 1fr;
@@ -773,6 +808,10 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .playbook-grid {
+  grid-template-columns: 1fr;
+}
+
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -782,6 +821,21 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.site-header--home .container {
+  flex-wrap: wrap;
+}
+
+.site-header--home nav {
+  width: 100%;
+}
+
+.site-header--home .nav-links {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 0;
+}
+
 
 @media (max-width: 480px) {
   h1 {
