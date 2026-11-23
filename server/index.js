@@ -13,10 +13,18 @@ app.post('/contact', (req, res) => {
   const name = (req.body.name || '').trim();
   const email = (req.body.email || '').trim();
   const message = (req.body.message || '').trim();
+  const website = (req.body.website || '').trim();
+  const formLoadedAt = Number(req.body.formLoadedAt);
+  const submittedTooQuickly = !formLoadedAt || Date.now() - formLoadedAt < 3000;
+
 
   if (!name || !email || !message) {
     return res.status(400).json({ ok: false, error: 'Please fill in your name, email and message.' });
   }
+
+  if (website || submittedTooQuickly) {
+  return res.json({ ok: true });
+}
 
   sendToSupport({ name, email, message });
   res.json({ ok: true });

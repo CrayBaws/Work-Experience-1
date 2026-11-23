@@ -1,6 +1,9 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 
+const formLoadedAt = document.getElementById('form-loaded-at');
+formLoadedAt.value = Date.now();
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
