@@ -18,13 +18,14 @@ app.post('/contact', (req, res) => {
   const submittedTooQuickly = !formLoadedAt || Date.now() - formLoadedAt < 3000;
 
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ ok: false, error: 'Please fill in your name, email and message.' });
-  }
-
   if (website || submittedTooQuickly) {
   return res.json({ ok: true });
 }
+
+if (!name || !email || !message) {
+  return res.status(400).json({ ok: false, error: 'Please fill in your name, email and message.' });
+}
+
 
   sendToSupport({ name, email, message });
   res.json({ ok: true });
