@@ -808,9 +808,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .playbook-grid {
-  grid-template-columns: 1fr;
-}
 
   .contact-layout {
     grid-template-columns: 1fr;
